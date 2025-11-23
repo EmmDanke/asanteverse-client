@@ -1,4 +1,36 @@
 <div class="skill-calculator-container">
+  <div
+    class="points-display"
+    [class.warning]="isLimitReached()"
+    [class.error]="isLimitExceeded()"
+  >
+    <div class="points-info">
+      <span class="points-label">Points Spent:</span>
+      <span class="points-value">{{ currentCost() }}</span>
+      <span class="points-separator">/</span>
+      <span class="points-max">{{
+        skillCalculatorService.MAXIMUM_POINTS
+      }}</span>
+    </div>
+    <div class="points-remaining">
+      <span class="remaining-label">Remaining:</span>
+      <span class="remaining-value">{{ remainingPoints() }}</span>
+    </div>
+    @if (isLimitExceeded()) {
+      <div class="warning-message error-message">
+        ⚠️ You have exceeded the maximum points limit!
+      </div>
+    } @else if (isLimitReached()) {
+      <div class="warning-message">
+        ⚠️ You have reached the maximum points limit!
+      </div>
+    }
+    @if (warningMessage()) {
+      <div class="warning-message blocked-selection-message">
+        {{ warningMessage() }}
+      </div>
+    }
+  </div>
   <table class="skills-table">
     <thead>
       <tr>
@@ -25,6 +57,7 @@
                     class="skill-box"
                     [label]="skill.name"
                     [checked]="isSkillSelected(skill.id)"
+                    [triggerBlink]="getBlinkCounter(skill.id)"
                     (checkedChange)="onSkillToggle(skill.id, $event)"
                   />
                 }

@@ -40,3 +40,30 @@
 .checkbox-text {
   font-size: 1rem;
 }
+
+@keyframes blink-red {
+  0%,
+  100% {
+    background-color: transparent;
+    border-color: #333;
+  }
+  25%,
+  75% {
+    background-color: #ff4444;
+    border-color: #cc0000;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  }
+  50% {
+    background-color: #ff6666;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.7);
+  }
+}
+
+.checkbox-label.blink-red {
+  animation: blink-red 0.6s ease-in-out;
+
+  .checkbox-symbol {
+    animation: blink-red 0.6s ease-in-out;
+  }
+}
