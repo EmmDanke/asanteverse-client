@@ -3,4 +3,103 @@
   flex-direction: column;
   flex: 1;
   width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.skill-calculator-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  box-sizing: border-box;
+}
+
+.skills-table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout: auto;
+  width: auto;
+  min-width: 100%;
+
+  th,
+  td {
+    padding: 15px;
+    border: 2px solid #000;
+    vertical-align: top;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+
+  th {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .family-header {
+    background-color: #f0f0f0;
+    text-align: left;
+  }
+
+  .family-name {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .tier-accessible {
+    background-color: #90ee90; // Light green
+  }
+
+  .tier-training-1y {
+    background-color: #ffff99; // Yellow
+  }
+
+  .tier-training-10y {
+    background-color: #ffcc99; // Orange
+  }
+
+  .tier-rare {
+    background-color: #dda0dd; // Purple/Lavender
+  }
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-box {
+  border: 1px solid #000;
+  padding: 8px 12px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.additional-concepts {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px;
+  background-color: #d3d3d3; // Gray
+  border: 2px solid #000;
+  flex-wrap: wrap;
+}
+
+.concept-box {
+  border: 1px solid #000;
+  padding: 8px 12px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.concept-text {
+  color: #000;
 }

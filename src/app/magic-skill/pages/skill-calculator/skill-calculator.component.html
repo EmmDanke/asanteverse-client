@@ -1,3 +1,38 @@
 <div class="skill-calculator-container">
-  <p>skill-calculator works!</p>
+  <table class="skills-table">
+    <thead>
+      <tr>
+        <th ass="fami  -header">Family</th>
+        @for (tier of tiers; track tier) {
+          <th [class]="getTierClass(tier)">
+            {{ getTierLabel(tier) }}
+          </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (familyRow of familyRows; track familyRow.family.id) {
+        <tr>
+          <td class="family-name">{{ familyRow.family.name }}</td>
+          @for (tier of tiers; track tier) {
+            <td [class]="getTierClass(tier)">
+              <div class="skill-list">
+                @for (
+                  skill of getSkillsForFamilyAndTier(familyRow, tier);
+                  track skill.id
+                ) {
+                  <app-checkbox
+                    class="skill-box"
+                    [label]="skill.name"
+                    [checked]="isSkillSelected(skill.id)"
+                    (checkedChange)="onSkillToggle(skill.id, $event)"
+                  />
+                }
+              </div>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
 </div>

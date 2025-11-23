@@ -1,0 +1,13 @@
+<label class="checkbox-label">
+  <input
+    type="checkbox"
+    class="checkbox-input"
+    [checked]="checked()"
+    (change)="onChange($event)"
+    [attr.aria-label]="label() || undefined"
+  />
+  <span class="checkbox-symbol" [class.checked]="checked()">
+    {{ checked() ? '✓' : '' }}
+  </span>
+  <span class="checkbox-text">{{ label() }}</span>
+</label>
