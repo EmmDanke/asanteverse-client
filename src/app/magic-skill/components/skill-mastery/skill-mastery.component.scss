@@ -1,13 +1,12 @@
 .skill-mastery {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 1rem;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
 }
 
@@ -19,7 +18,7 @@
 }
 
 .skill-name {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
 }
@@ -27,8 +26,8 @@
 .skill-info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+  gap: 0.25rem;
+  font-size: 0.85rem;
 }
 
 .cost {

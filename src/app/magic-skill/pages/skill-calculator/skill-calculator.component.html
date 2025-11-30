@@ -1,4 +1,9 @@
-<app-character-skill-family
-  [idFamily]="familyId"
-  [toastService]="toastService"
-></app-character-skill-family>
+<div class="families-container">
+  @for (family of allFamilies(); track family.id) {
+    <app-character-skill-family
+      [idFamily]="family.id"
+      [familyFormGroup]="formGroup.controls[family.id]"
+      [toastService]="toastService"
+    ></app-character-skill-family>
+  }
+</div>

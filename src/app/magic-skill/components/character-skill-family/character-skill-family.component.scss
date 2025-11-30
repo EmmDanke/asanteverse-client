@@ -1,7 +1,21 @@
+:host {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
 .character-skill-family {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
 }
 
 .family-name {

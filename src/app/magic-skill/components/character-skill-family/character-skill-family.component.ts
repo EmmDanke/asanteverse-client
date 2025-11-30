@@ -43,6 +43,7 @@ export class CharacterSkillFamilyComponent {
   }
 
   readonly idFamily = input.required<string>();
+  readonly familyFormGroup = input.required<FormGroup<FamilyMasteryForm>>();
   readonly totalSkillPoints = input<number>();
   readonly toastService = input.required<ToastService>();
 
@@ -56,15 +57,23 @@ export class CharacterSkillFamilyComponent {
     this.magicSkillService.findSkillsByFamily(this.idFamily())
   );
 
-  readonly skillsWithFormGroups = computed(() =>
-    this.skills().map(skill => {
-      return {
-        formGroup: SkillMasteryComponent.createFormGroup({
+  readonly skillsWithFormGroups = computed(() => {
+    const skills = this.skills();
+    const familyFormGroup = this.familyFormGroup();
+
+    return skills.map(skill => {
+      let formGroup = familyFormGroup.controls[skill.id];
+
+      // Create form group if it doesn't exist
+      if (!formGroup) {
+        formGroup = SkillMasteryComponent.createFormGroup({
           idSkill: skill.id,
           level: 0,
-        }),
-        skill,
-      };
-    })
-  );
+        });
+        familyFormGroup.addControl(skill.id, formGroup);
+      }
+
+      return { formGroup, skill };
+    });
+  });
 }

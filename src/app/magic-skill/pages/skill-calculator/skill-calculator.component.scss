@@ -1,0 +1,38 @@
+.families-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1rem;
+
+  app-character-skill-family {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  // Tablet: 2 columns (≥ 768px)
+  @media (min-width: 768px) {
+    app-character-skill-family {
+      flex: 1 1 calc(50% - 0.5rem);
+      min-width: calc(50% - 0.5rem);
+      max-width: calc(50% - 0.5rem);
+    }
+  }
+
+  // Desktop: 3 columns (≥ 1024px)
+  @media (min-width: 1024px) {
+    app-character-skill-family {
+      flex: 1 1 calc(33.333% - 0.67rem);
+      min-width: calc(33.333% - 0.67rem);
+      max-width: calc(33.333% - 0.67rem);
+    }
+  }
+
+  // Large desktop: 4 columns (≥ 1440px)
+  @media (min-width: 1440px) {
+    app-character-skill-family {
+      flex: 1 1 calc(25% - 0.75rem);
+      min-width: calc(25% - 0.75rem);
+      max-width: calc(25% - 0.75rem);
+    }
+  }
+}
