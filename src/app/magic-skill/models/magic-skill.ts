@@ -2,6 +2,7 @@ export interface MagicSkill {
   id: string;
   idFamily: string;
   tier: SkillTier;
+  maxLevel: number;
   name: string;
   description?: string;
   image?: string;

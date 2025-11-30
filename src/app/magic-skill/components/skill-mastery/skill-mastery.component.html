@@ -1,0 +1,10 @@
+<div class="skill-mastery">
+  <div class="skill-header">
+    <div class="skill-name">{{ skill().name }}</div>
+    <app-tag [text]="tierText()" [color]="tierColor()"></app-tag>
+  </div>
+  <app-star-rate
+    [interact]="starRateInteract()"
+    [maxRating]="skill().maxLevel"
+  ></app-star-rate>
+</div>

@@ -1,0 +1,15 @@
+<div class="star-rate">
+  @for (star of stars(); track star.index) {
+    <span
+      class="star"
+      [class.filled]="star.filled"
+      [attr.aria-label]="'Star ' + star.index + ' of ' + maxRating()"
+      (mousedown)="formInteractor.setValueByUser(star.index)"
+      role="button"
+      tabindex="0"
+    >
+      ★
+    </span>
+  }
+</div>
+<app-form-warn [message]="formInteractor.warnMessage()" />

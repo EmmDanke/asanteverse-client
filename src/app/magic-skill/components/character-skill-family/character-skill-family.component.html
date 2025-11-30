@@ -1,0 +1,17 @@
+<div class="character-skill-family">
+  <h2 class="family-name">{{ family()?.name }}</h2>
+  <div class="total-cost">
+    <span class="cost" [class.unaffordable]="!canAfford()">
+      Total Cost: {{ totalCost() }} points
+    </span>
+  </div>
+  @for (item of skillsWithInteractOptions(); track item.skill.id) {
+    @if (item.interactOptions) {
+      <app-skill-mastery
+        [skill]="item.skill"
+        [interact]="item.interactOptions"
+        [remainingSkillPoints]="remainingSkillPoints()"
+      ></app-skill-mastery>
+    }
+  }
+</div>
