@@ -4,7 +4,7 @@
       class="star"
       [class.filled]="star.filled"
       [attr.aria-label]="'Star ' + star.index + ' of ' + maxRating()"
-      (mousedown)="formInteractor.setValueByUser(star.index)"
+      (mousedown)="setValue(star.index)"
       role="button"
       tabindex="0"
     >
@@ -12,4 +12,4 @@
     </span>
   }
 </div>
-<app-form-warn [message]="formInteractor.warnMessage()" />
+<app-form-warn [message]="invalidMessage()" />
